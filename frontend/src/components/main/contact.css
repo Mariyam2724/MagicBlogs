@@ -1,0 +1,24 @@
+.cascading-right {
+    margin-right: -50px;
+    z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+    .cascading-right {
+        margin-right: 0;
+    }
+}
+
+/* Map settings */
+.map-container {
+    height: 700px;
+    position: relative;
+}
+
+.map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}

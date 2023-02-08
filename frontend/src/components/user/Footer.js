@@ -44,39 +44,33 @@ const Footer = () => {
               {/* Content */}
               <h6 className="text-uppercase fw-bold mb-4">
                 <i className="fas fa-gem me-3" />
-                Company name
+                Automated Blog Geneartion System 
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
+                Convert your video to a blog using AI at a fast rate and save your time
               </p>
             </div>
             {/* Grid column */}
             {/* Grid column */}
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               {/* Links */}
-              <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+              <h6 className="text-uppercase fw-bold mb-4">Methodology</h6>
               <p>
                 <a href="#!" className="text-reset">
-                  Angular
+                  MERN Stack
                 </a>
               </p>
               <p>
                 <a href="#!" className="text-reset">
-                  React
+                  AI Algorithm(CNN Algorithm)
                 </a>
               </p>
               <p>
                 <a href="#!" className="text-reset">
-                  Vue
+                  TensorFlow.js
                 </a>
               </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Laravel
-                </a>
-              </p>
+              
             </div>
             {/* Grid column */}
             {/* Grid column */}
@@ -85,7 +79,7 @@ const Footer = () => {
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
                 <a href="#!" className="text-reset">
-                  Pricing
+                  Your Videos
                 </a>
               </p>
               <p>
@@ -95,7 +89,7 @@ const Footer = () => {
               </p>
               <p>
                 <a href="#!" className="text-reset">
-                  Orders
+                  
                 </a>
               </p>
               <p>

@@ -23,9 +23,9 @@ const Header = () => {
           {/* Navbar brand */}
           <a className="navbar-brand mt-2 mt-lg-0" href="#">
             <img
-              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-              height={15}
-              alt="MDB Logo"
+              src="https://www.shutterstock.com/image-vector/video-blog-player-interface-icon-260nw-435992056.jpg"
+              height={70}
+              alt="Logo"
               loading="lazy"
             />
           </a>
@@ -54,7 +54,7 @@ const Header = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="btn btn-outline-white" to="/main/login">
+              <NavLink className="btn btn-outline-white" to="/main/signin">
                 Signin
               </NavLink>
             </li>
