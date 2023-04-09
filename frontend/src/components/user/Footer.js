@@ -44,39 +44,33 @@ const Footer = () => {
               {/* Content */}
               <h6 className="text-uppercase fw-bold mb-4">
                 <i className="fas fa-gem me-3" />
-                Company name
+                Automated Blog Geneartion System 
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
+                Convert your video to a blog using AI at a fast rate and save your time
               </p>
             </div>
             {/* Grid column */}
             {/* Grid column */}
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               {/* Links */}
-              <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+              <h6 className="text-uppercase fw-bold mb-4">Methodology</h6>
               <p>
                 <a href="#!" className="text-reset">
-                  Angular
+                  MERN Stack
                 </a>
               </p>
               <p>
                 <a href="#!" className="text-reset">
-                  React
+                  AI Algorithm(CNN Algorithm)
                 </a>
               </p>
               <p>
                 <a href="#!" className="text-reset">
-                  Vue
+                  TensorFlow.js
                 </a>
               </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Laravel
-                </a>
-              </p>
+              
             </div>
             {/* Grid column */}
             {/* Grid column */}
@@ -85,7 +79,7 @@ const Footer = () => {
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
                 <a href="#!" className="text-reset">
-                  Pricing
+                  Your Videos
                 </a>
               </p>
               <p>
@@ -95,7 +89,7 @@ const Footer = () => {
               </p>
               <p>
                 <a href="#!" className="text-reset">
-                  Orders
+                  
                 </a>
               </p>
               <p>
@@ -110,17 +104,17 @@ const Footer = () => {
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
               <p>
-                <i className="fas fa-home me-3" /> New York, NY 10012, US
+                <i className="fas fa-home me-3" /> Lucknow, Uttar Pradesh, India
               </p>
               <p>
                 <i className="fas fa-envelope me-3" />
-                info@example.com
+                mariyamtariq@gmail.com
               </p>
               <p>
-                <i className="fas fa-phone me-3" /> + 01 234 567 88
+                <i className="fas fa-phone me-3" /> +91 8303014796
               </p>
               <p>
-                <i className="fas fa-print me-3" /> + 01 234 567 89
+                <i className="fas fa-print me-3" /> 
               </p>
             </div>
             {/* Grid column */}
@@ -134,9 +128,9 @@ const Footer = () => {
         className="text-center p-4"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        © 2021 Copyright:
+        © 2023 Copyright:
         <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-          MDBootstrap.com
+          Automated Blog Geneartion System
         </a>
       </div>
       {/* Copyright */}

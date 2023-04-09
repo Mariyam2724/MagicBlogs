@@ -14,6 +14,12 @@ import AdminAuth from "./auth/AdminAuth";
 import UserProvider from "./context/UserProvider";
 import AdminProvider from "./context/AdminProvider";
 import { useState } from "react";
+import Contact from "./components/main/Contact";
+import About from "./components/main/About";
+import AddVideo from "./components/user/AddVideo";
+import ManageVideos from "./components/user/ManageVideos";
+import Browse from "./components/user/Browse";
+import BlogsList from "./components/main/BlogsList";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -43,19 +49,25 @@ function App() {
 
             <Route element={<Main />} path="main">
               <Route element={<Home />} path="home" />
+              <Route element={<Contact />} path="contact" />
               <Route element={<Signin />} path="signin" />
               <Route element={<Signup />} path="signup" />
+              <Route element={<About />} path="aboutus" />
+              <Route element={<BlogsList/>} path="bloglist" />
             </Route>
 
             <Route
               element={
-                // <UserAuth>
-                // </UserAuth>
-                <User />
+                <UserAuth>
+                  <User />
+                </UserAuth>
               }
               path="user"
             >
               <Route path="profile" element={<UserProfile />} />
+              <Route path="addvideo" element={<AddVideo />} />
+              <Route path="managevideo" element={<ManageVideos />} />
+              <Route path="userhome" element={<Browse />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

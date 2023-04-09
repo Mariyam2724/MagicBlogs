@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <>
       {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-black">
         {/* Container wrapper */}
         <div className="container">
           {/* Toggle button */}
@@ -33,8 +33,8 @@ const Header = () => {
             {/* Navbar brand */}
             <a className="navbar-brand mt-2 mt-lg-0" href="#">
             <img
-              src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-              height={15}
+              src="https://www.shutterstock.com/image-vector/video-blog-player-interface-icon-260nw-435992056.jpg"
+              height={70}
               alt="MDB Logo"
               loading="lazy"
             />
@@ -42,8 +42,8 @@ const Header = () => {
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/main/home">
-                  Home
+                <NavLink className="nav-link" to="/user/userhome">
+                  Browse
                 </NavLink>
               </li>
               {loggedin && (
@@ -60,14 +60,15 @@ const Header = () => {
                   </li>
                 </>
               )}
+              
               <li className="nav-item">
-                <NavLink className="nav-link" to="/main/browse">
-                  Browse
+                <NavLink className="nav-link" to="/user/addvideo">
+                  AddVideos
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/user/manageorders">
-                  ManageOrders
+                <NavLink className="nav-link" to="/user/managevideo">
+                  ManageVideos
                 </NavLink>
               </li>
             </ul>
@@ -87,9 +88,9 @@ const Header = () => {
                 aria-expanded="false"
               >
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                  src="https://www.shutterstock.com/image-illustration/user-check-mark-icon-can-260nw-1262308765.jpg"
                   class="rounded-circle"
-                  height="25"
+                  height="60"
                   alt="Black and White Portrait of a Man"
                   loading="lazy"
                 />
