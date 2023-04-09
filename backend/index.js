@@ -4,7 +4,7 @@ dotenv.config();
 
 const userRouter = require('./routers/userRouter');
 const videoRouter = require('./routers/videoRouter')
-const utilRouter = require('./routers/utils');
+const utilRouter = require('./routers/util');
 const cors = require('cors');
 const { PORT } = require('./config');
 
