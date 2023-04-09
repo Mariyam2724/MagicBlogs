@@ -1,0 +1,40 @@
+.t1{
+    border: 1px solid;
+    color: white;
+    background-color: #598cca;
+    border-radius: 5px;
+    width: 35%;
+
+}
+.t1:hover{
+    color: white;
+    background: #163172;
+}
+.category{
+    color: white;
+}
+.category:hover{
+    color: white;
+}
+.author{
+    text-transform: uppercase;
+}
+.author:hover{
+    text-decoration: underline; 
+    transform: scale(1.5);   
+}
+.blogheader{
+    /* background-image:url("../main/photo/pexels-pixabay-262508.jpg"); */
+    height:60vh;
+    background-size:cover;
+    background-position:center; 
+    background-repeat:no-repeat;
+    background-blend-mode: darken;
+    background-color: rgba(0,0,0,0.5);
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.bg-image-blog{
+    height:15rem;
+    width: 100%;
+}
