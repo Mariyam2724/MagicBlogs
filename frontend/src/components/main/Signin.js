@@ -35,13 +35,14 @@ const Signin = () => {
 
         navigate('/user/addvideo')
       }
-      else(res.status===501)
+      else if(res.status===501)
       {
         Swal.fire({
-          icon : 'unsuccessful'
+          icon : 'error',
+          title : 'Error',
+          text : 'Email or Password is incorrect'
         })
 
-        navigate('/main/signin')
 
       }
     },
