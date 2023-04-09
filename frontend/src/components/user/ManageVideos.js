@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ManageVideos = () => {
   const url = "http://localhost:5000";
@@ -10,12 +10,15 @@ const ManageVideos = () => {
     JSON.parse(sessionStorage.getItem("user"))
   );
 
+  const navigate = useNavigate();
+
   const getDataFromBackend = () => {
     fetch(url + "/video/getbyuser/" + currentUser._id)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setVideoList(data.result);
+
       });
   };
 
@@ -28,6 +31,7 @@ const ManageVideos = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        navigate('/blog/addblog/'+id);
       });
   };
 

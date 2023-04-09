@@ -1,0 +1,16 @@
+.list-bg-image{
+    background-image: url("../main/photo/blog.jpg");
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:  40px;
+    color: White;
+    font-weight: 400;
+}
