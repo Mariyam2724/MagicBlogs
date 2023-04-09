@@ -35,6 +35,15 @@ const Signin = () => {
 
         navigate('/user/addvideo')
       }
+      else(res.status===501)
+      {
+        Swal.fire({
+          icon : 'unsuccessful'
+        })
+
+        navigate('/main/signin')
+
+      }
     },
     validate: (values) => {
       const errors = {};
