@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Home = () => {
   return (
     <>
-  <div className="container py-4 ">
+  <div className="container py-4 " >
     {" "}
     <div className="row g-0 align-items-center">
       {" "}

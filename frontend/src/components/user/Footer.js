@@ -104,17 +104,17 @@ const Footer = () => {
               {/* Links */}
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
               <p>
-                <i className="fas fa-home me-3" /> New York, NY 10012, US
+                <i className="fas fa-home me-3" /> Lucknow, Uttar Pradesh, India
               </p>
               <p>
                 <i className="fas fa-envelope me-3" />
-                info@example.com
+                mariyamtariq@gmail.com
               </p>
               <p>
-                <i className="fas fa-phone me-3" /> + 01 234 567 88
+                <i className="fas fa-phone me-3" /> +91 8303014796
               </p>
               <p>
-                <i className="fas fa-print me-3" /> + 01 234 567 89
+                <i className="fas fa-print me-3" /> 
               </p>
             </div>
             {/* Grid column */}
@@ -128,9 +128,9 @@ const Footer = () => {
         className="text-center p-4"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        © 2021 Copyright:
+        © 2023 Copyright:
         <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-          MDBootstrap.com
+          Automated Blog Geneartion System
         </a>
       </div>
       {/* Copyright */}
