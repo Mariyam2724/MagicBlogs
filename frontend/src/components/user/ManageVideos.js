@@ -1,75 +1,53 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ManageVideos = () => {
-  const url = "http://localhost:5000"
+  const url = "http://localhost:5000";
   const [videoList, setVideoList] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [updateFormData, setUpdateFormData] = useState(null);
-
-  const nums = [43, 32, 5, 3, 53]
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
 
   const getDataFromBackend = () => {
-    fetch(url + "/user/getall")
+    fetch(url + "/video/getbyuser/" + currentUser._id)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        setVideoList(data.result)
-      })
-  }
+        console.log(data);
+        setVideoList(data.result);
+      });
+  };
 
   useEffect(() => {
     getDataFromBackend();
-  }, [])
-  
-  
+  }, []);
+
   const displayVideos = () => {
-    return videoList.map(video => (
+    return videoList.map((video) => (
       <div className="col-sm-6">
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">{video.title}</h5>
-        <p className="card-text">
-          Mangae your videos here! 
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">{video.title}</h5>
 
-          
-          
-        </p>
-           
-           
-
-        <a href="#" className="btn btn-primary">
-          Go somewhere
-        </a>
-      </div>
-    </div>
-  </div>
-    ))
-  }
-  
-  const displayNumbers = () => {
-    return nums.map((n) => (
-      <div className="card bg-warning mt-4">
-        <div className="card-body">
-          <h2>{n}</h2>
+            <Link to={"/user/"} className="btn btn-primary">
+              Use Video
+            </Link>
+          </div>
         </div>
       </div>
-    ))
-  }
+    ));
+  };
 
   const toggleUpdateForm = (userdata) => {
     setShowForm(true);
     setUpdateFormData(userdata);
-  }
+  };
   return (
     <div>
-
-<div className="row">
-  {displayVideos()}
-</div>
-
-
+      <div className="row">{displayVideos()}</div>
     </div>
-  )
-}
+  );
+};
 
-export default ManageVideos
+export default ManageVideos;
