@@ -20,6 +20,8 @@ import AddVideo from "./components/user/AddVideo";
 import ManageVideos from "./components/user/ManageVideos";
 import Browse from "./components/user/Browse";
 import BlogsList from "./components/main/BlogsList";
+import Blog from "./components/blog";
+import AddBlog from "./components/blog/AddBlog";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -71,6 +73,15 @@ function App() {
               <Route path="addvideo" element={<AddVideo />} />
               <Route path="managevideo" element={<ManageVideos />} />
               <Route path="userhome" element={<Browse />} />
+            </Route>
+            
+            <Route
+              element={
+                  <Blog />
+              }
+              path="blog"
+            >
+              <Route path="addblog/:videoid" element={<AddBlog />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

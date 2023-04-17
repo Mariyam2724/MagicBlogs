@@ -5,6 +5,7 @@ dotenv.config();
 const userRouter = require('./routers/userRouter');
 const videoRouter = require('./routers/videoRouter')
 const utilRouter = require('./routers/util');
+const blogRouter = require('./routers/blogRouter');
 const cors = require('cors');
 const { PORT } = require('./config');
 
@@ -23,6 +24,7 @@ app.use(cors(
 app.use('/user', userRouter); 1
 app.use('/video', videoRouter);
 app.use('/util', utilRouter);
+app.use('/blog', blogRouter);
 app.get('/', (req, res) => {
     console.log('Request at index');
     res.status(299).send('Working Perfectly!!');
