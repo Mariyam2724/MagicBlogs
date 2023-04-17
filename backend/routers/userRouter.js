@@ -28,7 +28,7 @@ router.post("/auth", (req, res) => {
         new Model(result).comparePassword(req.body.password, (err, isMatch) => {
           if (err || !isMatch) {
             console.error("Error authenticating user", err);
-            res.status(500).send({status: "failed"});
+            res.status(401).send({status: "failed"});
           } else {
             console.log("User authenticated");
             res.status(201).json({ status: "success", result });

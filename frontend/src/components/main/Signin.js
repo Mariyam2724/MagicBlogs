@@ -30,12 +30,13 @@ const Signin = () => {
         console.log(data);
         sessionStorage.setItem('user', JSON.stringify(data.result));
         Swal.fire({
-          icon : 'success'
+          icon : 'success',
+          title: 'Video Added'
         })
 
         navigate('/user/addvideo')
       }
-      else if(res.status===501)
+      else if(res.status===401)
       {
         Swal.fire({
           icon : 'error',
