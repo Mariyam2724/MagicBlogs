@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import Addvideo from "./AddVideo";
+import app_config from "../../config";
+import { useNavigate } from "react-router-dom";
 
-const ManageVideos = () => {
-  const url = "http://localhost:5000";
-  const [videoList, setVideoList] = useState([]);
+const ManageVideo = () => {
+  const url = app_config.backend_url;
+  const [userArray, setUserArray] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [updateFormData, setUpdateFormData] = useState(null);
   const [currentUser, setCurrentUser] = useState(
@@ -11,20 +14,6 @@ const ManageVideos = () => {
   );
 
   const navigate = useNavigate();
-
-  const getDataFromBackend = () => {
-    fetch(url + "/video/getbyuser/" + currentUser._id)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setVideoList(data.result);
-
-      });
-  };
-
-  useEffect(() => {
-    getDataFromBackend();
-  }, []);
 
   const generateTranscript = (id) => {
     fetch(url + "/util/transcribe/" + id)
@@ -35,7 +24,31 @@ const ManageVideos = () => {
       });
   };
 
-  const displayVideos = () => {
+  const getDataFromBackend = () => {
+    fetch(url + "/video/getbyuser/" + currentUser._id)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserArray(data);
+      });
+  };
+
+  useEffect(() => {
+    getDataFromBackend();
+  }, []);
+
+  const deleteUser = async (id) => {
+    const res = await fetch(url + "/user/delete/" + id, {
+      method: "DELETE",
+    });
+
+    if (res.status === 200) {
+      toast.success("Successfully deleted!");
+      getDataFromBackend();
+    }
+  };
+
+  const displayUsers = () => {
     return (
       <table className="table align-middle mb-0 bg-white">
         <thead className="bg-light">
@@ -47,7 +60,7 @@ const ManageVideos = () => {
           </tr>
         </thead>
         <tbody>
-          {videoList.map(({ _id, username, email, password }) => (
+          {userArray.map(({ _id, username, email, password }) => (
             <tr key={_id}>
               <td>
                 <div className="d-flex align-items-center">
@@ -84,9 +97,9 @@ const ManageVideos = () => {
                 <button
                   type="button"
                   className="btn btn-danger btn-sm btn-rounded"
-                  // onClick={() => {
-                  //   deleteVideo(_id);
-                  // }}
+                  onClick={() => {
+                    deleteUser(_id);
+                  }}
                 >
                   Delete
                 </button>
@@ -98,17 +111,22 @@ const ManageVideos = () => {
     );
   };
 
- 
-
   const toggleUpdateForm = (userdata) => {
     setShowForm(true);
     setUpdateFormData(userdata);
   };
+
   return (
     <div>
-      <div className="row">{displayVideos()}</div>
+      <h1>Video Manager Dashboard</h1>
+      {/* table */}
+      <Addvideo />
+      nice
+      <div className="row">
+        <div className="col-md">{displayUsers()}</div>
+      </div>
     </div>
   );
 };
 
-export default ManageVideos;
+export default ManageVideo;

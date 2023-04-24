@@ -1,135 +1,171 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
-import app_config from '../../config';
-import { useFormik } from "formik";
-
+import { Button } from "@mui/material";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
+import { Formik } from "formik";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+// import Loading from "../main/Loading";
+import { motion } from "framer-motion";
 
 const AddVideo = () => {
-
-  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
-
-  
-  const formik = useFormik({
-    initialValues: {
-      title: "",
-      user: currentUser._id,
-      file: ""
-    },
-    onSubmit: async (values) => {
-      values.file = selFile;
-      console.log(values);
-      
-      const res = await fetch(url+'/video/add', {
-        method: 'POST',
-        body: JSON.stringify(values),
-        headers: {
-          'Content-Type' : 'application/json'
-        }
-      });
-
-      console.log(res.status);
-
-    },
-    // validate: (values) => {
-    //   const errors = {};
-    //   if (!values.title) {
-    //     errors.Title = "Title is required";
-    //   } 
-      
-    //   if (!values.user) {
-    //     errors.User = "User name is required";
-    //   }
-    //   if(!values.uploadVideo)
-    //   return errors;
-    // },
-  });
-
-  const url = app_config.apiurl;
   const [selFile, setSelFile] = useState("");
+  const [selImage, setSelImage] = useState("");
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
+  const [loading, setLoading] = useState(false);
+  const userForm = {
+    title: "",
+    description: "",
+  };
 
   const uploadFile = (e) => {
     const file = e.target.files[0];
     setSelFile(file.name);
     const fd = new FormData();
     fd.append("myfile", file);
-    fetch(url + "/util/uploadfile", {
+    fetch("http://localhost:5000/util/uploadfile", {
       method: "POST",
       body: fd,
     }).then((res) => {
       if (res.status === 200) {
-        console.log("file uploaded");
+        toast.success("Video uploaded successfully");
+        console.log("uploaded");
       }
     });
   };
 
+  const uploadImage = (e) => {
+    const file = e.target.files[0];
+    setSelImage(file.name);
+    const fd = new FormData();
+    fd.append("myfile", file);
+    fetch("http://localhost:5000/util/uploadfile", {
+      method: "POST",
+      body: fd,
+    }).then((res) => {
+      if (res.status === 200) {
+        toast.success("Image uploaded successfully");
+        console.log("uploaded");
+      }
+    });
+  };
 
+  const userSubmit = async (formdata) => {
+    setLoading(true);
+    formdata.thumbnail = selImage;
+    formdata.file = selFile;
+    formdata.user = currentUser._id;
+    console.log(formdata);
+    const response = await fetch("http://localhost:5000/video/add", {
+      method: "POST",
+      body: JSON.stringify(formdata),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.status === 200) {
+      console.log("Success");
+      Swal.fire({
+        title: "Success",
+        text: "Video added successfully😁👍",
+        icon: "success",
+      });
+      // getDataFromBackend();
+    } else {
+      console.log("Something went wrong");
+      Swal.fire({
+        title: "Error",
+        text: "Something went wrong😔",
+        icon: "error",
+      });
+    }
+    setLoading(false);
+  };
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "skyblue" }}>
-      <div className="container h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-xl-9">
-            <h1 className="text-black mb-4">ADD VIDEO</h1>
-            <div className="card" style={{ borderRadius: 15 }}>
-              <div className="card-body">
-                <form onSubmit={formik.handleSubmit}>
-                <div className="row align-items-center pt-4 pb-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Title</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input type="text" className="form-control form-control-lg" 
-                    id="title"
-                    value={formik.values.title}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                        />
-                        {formik.errors.title && formik.touched.title && (
-                    <div className="text-danger">{formik.errors.title}</div>
-                  )}
-                  </div>
-                </div>
-                
-                <hr className="mx-n3" />
-                <div className="row align-items-center py-3">
-                  <div className="col-md-3 ps-5">
-                    <h6 className="mb-0">Upload Video</h6>
-                  </div>
-                  <div className="col-md-9 pe-5">
-                    <input
-                      className="form-control form-control-lg"
-                      id="uploadVideo"
-                      onChange={uploadFile}
-                      type="file" value={formik.values.uploadVideo}
-                     
-                      onBlur={formik.handleBlur}
-                    />
-                     {formik.errors.uploadVideo && formik.touched.uploadVideo && (
-                <div className="text-danger">{formik.errors.uploadVideo}</div>
-              )}
-
-                    
-                    <div className="small text-muted mt-2">
-                      Upload your video or any other relevant video file.
-                    </div>
-                  </div>
-                </div>
-
-                <hr className="mx-n3" />
-                <div className="px-5 py-4">
-                  <button type="submit" className="btn btn-primary btn-lg">
-                      Add Video
-                  </button>
-                </div>
-                </form>
+    <motion.div
+      initial={{ opacity: 0, x: 300 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0.5, x: -300 }}
+      transition={{ type: "keyframes" }}
+      className="container-fluid"
+    >
+      <section className="header-top addvideo-header-bg">
+        <h1 className="header-text">Add New Video</h1>
+      </section>
+      <div className="card mt-5 w-50 mx-auto">
+        <Formik initialValues={userForm} onSubmit={userSubmit}>
+          {({ values, handleChange, handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4 px-3">
+                <label className="mx-1 form-label" htmlFor="form4Example1">
+                  Title:-
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  className="form-control"
+                  onChange={handleChange}
+                  value={values.title}
+                  required
+                />
               </div>
-            </div>
-          </div>
-        </div>
+              <div className="mb-4 px-3">
+                <label className="mx-1 form-label" for="form4Example3">
+                  Description:-
+                </label>
+                <TextareaAutosize
+                  aria-label="empty textarea"
+                  className="form-control"
+                  id="description"
+                  minRows={5}
+                  onChange={handleChange}
+                  value={values.description}
+                  required
+                />
+              </div>
+              <div className=" mb-4 d-flex justify-content-evenly align-item-center ">
+                <Button variant="contained" component="label">
+                  <i className="fas fa-upload    "></i> &nbsp; Upload Video
+                  <input
+                    hidden
+                    accept="video/*"
+                    multiple
+                    type="file"
+                    onChange={uploadFile}
+                  />
+                </Button>
+                <Button variant="contained" component="label">
+                  <i className="fas fa-upload"></i> &nbsp; Upload Thumbnail
+                  <input
+                    hidden
+                    accept="image/*"
+                    multiple
+                    type="file"
+                    onChange={uploadImage}
+                  />
+                </Button>
+              </div>
+              <div className="d-flex justify-content-center mb-4">
+                {!loading ? (
+                  <button
+                    type="submit"
+                    className="btn btn-danger w-75 mb-4 mt-3 rounded-5"
+                  >
+                    Submit
+                  </button>
+                ) : (
+                  // <Loading></Loading>
+                  <h1>Loading ...</h1>
+                )}
+              </div>
+            </form>
+          )}
+        </Formik>
       </div>
-    </section>
+    </motion.div>
+  );
+};
 
-  )
-}
-
-export default AddVideo
+export default AddVideo;

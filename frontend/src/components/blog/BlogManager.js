@@ -16,16 +16,17 @@ const BlogManager = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')))
 
 
   const getDataFromBackend = async () => {
     setLoading(true);
-    const response = await fetch(url + "/blog/getbyuserid/"+id);
+    const response = await fetch(url + "/blog/getbyuserid/"+currentUser._id);
     console.log(response.status);
     if (response.status === 200) {
       const data = await response.json();
-      setBlogList(data);
       console.log(data);
+      setBlogList(data);
       setLoading(false);
     }
   };
@@ -60,18 +61,13 @@ const BlogManager = () => {
           <div className="col-md-4 mt-4">
           <div className="card">
             <div
-              className="bg-div hover-overlay ripple"
+              className="bg-div ripple"
               data-mdb-ripple-color="light"
             >
               <img
                 src={url + "/" + image}
                 className="img-fluid bg-image-blog"
               />
-              <a href="#!">
-                <div
-                  className="mask"
-                  style={{backgroundColor: "rgba(251, 251, 251, 0.15)"}}></div>
-              </a>
             </div>
             <div class="card-body">
               <div className="date float-end">
