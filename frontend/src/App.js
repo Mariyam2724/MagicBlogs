@@ -22,6 +22,7 @@ import Browse from "./components/user/Browse";
 import BlogsList from "./components/main/BlogsList";
 import Blog from "./components/blog";
 import AddBlog from "./components/blog/AddBlog";
+import VideoManager from "./components/user/VideoManager";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -71,7 +72,7 @@ function App() {
             >
               <Route path="profile" element={<UserProfile />} />
               <Route path="addvideo" element={<AddVideo />} />
-              <Route path="managevideo" element={<ManageVideos />} />
+              <Route path="managevideo" element={<VideoManager />} />
               <Route path="userhome" element={<Browse />} />
             </Route>
             
@@ -81,7 +82,7 @@ function App() {
               }
               path="blog"
             >
-              <Route path="addblog/:videoid" element={<AddBlog />} />
+              <Route path="addblog/:id" element={<AddBlog />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -13,7 +13,7 @@ import "easymde/dist/easymde.min.css";
 
 const AddBlog = () => {
   const {id} = useParams();
-  const url = app_config.backend_url;
+  const url = app_config.apiurl;
   const [videoData, setVideoData] = useState("");
   const [loading, setLoading] = useState(false);
   const [fieldValues, setfieldValues] = useState("")
@@ -29,7 +29,7 @@ const AddBlog = () => {
     const response = await fetch(url + "/video/getbyid/" + id);
     // console.log(response.status);
     if( response.status === 200){
-    const data = await response.json();
+    const data = (await response.json()).result;
     console.log(data);
     setBlogData(data.transcription)
     setVideoData(data);

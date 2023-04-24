@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import AddVideo from "./AddVideo";
 
 const VideoManager = () => {
-  const url = app_config.backend_url;
+  const url = app_config.apiurl;
   const [userArray, setUserArray] = useState([]);
   const [loading, setLoading] = useState(false);
   const [blogLoading, setBlogLoading] = useState(false);
@@ -22,11 +22,11 @@ const VideoManager = () => {
 
   const getDataFromBackend = async () => {
     setLoading(true);
-    const response = await fetch(url + "/video/getbyuserid/" + currentUser._id);
+    const response = await fetch(url + "/video/getbyuser/" + currentUser._id);
     console.log(response.status);
     if (response.status === 200) {
       const data = await response.json();
-      setUserArray(data);
+      setUserArray(data.result);
       console.log(data);
       setLoading(false);
     }
@@ -73,7 +73,7 @@ const VideoManager = () => {
 
   const deleteVideo = async (id) => {
     console.log(id);
-    const response = await fetch(url + "/video/deletebyid/" + id, {
+    const response = await fetch(url + "/video/delete/" + id, {
       method: "Delete",
       headers: {
         "Content-Type": "application/json",

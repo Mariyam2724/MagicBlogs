@@ -44,6 +44,7 @@ const AddVideo = () => {
       method: "POST",
       body: fd,
     }).then((res) => {
+      console.log(res.status);
       if (res.status === 200) {
         toast.success("Image uploaded successfully");
         console.log("uploaded");
@@ -64,7 +65,8 @@ const AddVideo = () => {
         "Content-Type": "application/json",
       },
     });
-    if (response.status === 200) {
+    console.log(response.status);
+    if (response.status === 201) {
       console.log("Success");
       Swal.fire({
         title: "Success",
