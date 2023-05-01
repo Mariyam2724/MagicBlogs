@@ -83,6 +83,8 @@ function App() {
               path="blog"
             >
               <Route path="addblog/:id" element={<AddBlog />} />
+             
+              
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

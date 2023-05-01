@@ -72,16 +72,16 @@ const Signup = () => {
                 className="my-5 display-5 fw-bold ls-tight"
                 style={{ color: "hsl(218, 81%, 95%)" }}
               >
-                The best offer <br />
+                WELCOME <br />
                 <span style={{ color: "hsl(218, 81%, 75%)" }}>
-                  for you!
+                  Create an account!
                 </span>
               </h1>
               <p
                 className="mb-4 opacity-70"
                 style={{ color: "hsl(218, 81%, 85%)" }}
               >
-                WELCOME!
+                
               </p>
             </div>
             <div className="col-lg-6 mb-5 mb-lg-0 position-relative">

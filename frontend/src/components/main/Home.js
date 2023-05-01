@@ -53,6 +53,122 @@ const Home = () => {
     </div>{" "}
   </div>{" "}
   {/* Jumbotron */} {/**/}
+  
+  <div data-draggable="true" className="" style={{ position: "relative" }}>
+    {/**/}
+    {/**/}
+    <section draggable="false" className="container pt-5" data-v-271253ee="">
+      <section className="mb-10 text-center">
+        {" "}
+        <h2 className="fw-bold mb-5 text-center">
+          {" "}
+          <span className="me-1">Why is it so</span>
+          <u className="text-primary">great?</u>{" "}
+        </h2>{" "}
+
+        <h2 className="fw-bold mb-5 text-center">
+          {" "}
+        <p>You put much effort into creating your video? Then you should get the maximum out of your video and repurpose it! There are so many possibilities. Here are some of them.</p>
+        </h2>
+
+        <div className="row gx-lg-5">
+          {" "}
+        <div className="col-md-4 mb-5 mb-md-0">
+            {" "}
+            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
+              {" "}
+              <i
+                className="fas fa-shield-alt fa-lg text-white fa-fw"
+                aria-controls="#picker-editor"
+              />{" "}
+            </div>{" "}
+            <h5 className="fw-bold mb-3">Different Format</h5>{" "}
+            <p className="text-muted mb-0">
+            By converting your video into a text format you can reach others, for example, those who like to read.
+            </p>{" "}
+          </div>{" "}
+
+          <div className="col-md-4 mb-5 mb-md-0">
+            {" "}
+            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
+              {" "}
+              <i
+                className="fas fa-shield-alt fa-lg text-white fa-fw"
+                aria-controls="#picker-editor"
+              />{" "}
+            </div>{" "}
+            <h5 className="fw-bold mb-3">More Output</h5>{" "}
+            <p className="text-muted mb-0">
+            If you don't have a big media agency behind you, it's hard to have a high output. Repurpose to create more.
+            </p>{" "}
+          </div>{" "}
+
+          <div className="col-md-4 mb-5 mb-md-0">
+            {" "}
+            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
+              {" "}
+              <i
+                className="fas fa-shield-alt fa-lg text-white fa-fw"
+                aria-controls="#picker-editor"
+              />{" "}
+            </div>{" "}
+            <h5 className="fw-bold mb-3">SEO Friendly</h5>{" "}
+            <p className="text-muted mb-0">
+            By transforming your video into an article, search engines can understand and index your content.
+            </p>{" "}
+          </div>{" "}
+          </div>{" "}
+
+        <div className="row gx-lg-5">
+          {" "}
+          <div className="col-md-4 mb-5 mb-md-0">
+            {" "}
+            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
+              {" "}
+              <i
+                className="fas fa-headset fa-lg text-white fa-fw"
+                aria-controls="#picker-editor"
+              />{" "}
+            </div>{" "}
+            <h5 className="fw-bold mb-3">Support 24/7</h5>{" "}
+            <p className="text-muted mb-0">
+              Anyone can access it at any time it is available 24/7
+            </p>{" "}
+          </div>{" "}
+          <div className="col-md-4 mb-5 mb-md-0">
+            {" "}
+            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
+              {" "}
+              <i
+                className="fas fa-shield-alt fa-lg text-white fa-fw"
+                aria-controls="#picker-editor"
+              />{" "}
+            </div>{" "}
+            <h5 className="fw-bold mb-3">Safe and solid</h5>{" "}
+            <p className="text-muted mb-0">
+              It is secure and safe to use
+            </p>{" "}
+          </div>{" "}
+          <div className="col-md-4 mb-5 mb-md-0">
+            {" "}
+            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
+              {" "}
+              <i
+                className="fas fa-shipping-fast fa-lg text-white fa-fw"
+                aria-controls="#picker-editor"
+              />{" "}
+            </div>{" "}
+            <h5 className="fw-bold mb-3">Extremely fast</h5>{" "}
+            <p className="text-muted mb-0">
+              It converts the video based content into a blog at an extremely fast rate
+            </p>{" "}
+          </div>{" "}
+        </div>{" "}
+      </section>
+    </section>
+    {/**/}
+  </div>
+
   <div data-draggable="true" className="" style={{ position: "relative" }}>
     {/**/}
     {/**/}
@@ -129,66 +245,7 @@ const Home = () => {
     </section>
     {/**/}
   </div>
-  <div data-draggable="true" className="" style={{ position: "relative" }}>
-    {/**/}
-    {/**/}
-    <section draggable="false" className="container pt-5" data-v-271253ee="">
-      <section className="mb-10 text-center">
-        {" "}
-        <h2 className="fw-bold mb-5 text-center">
-          {" "}
-          <span className="me-1">Why is it so</span>
-          <u className="text-primary">great?</u>{" "}
-        </h2>{" "}
-        <div className="row gx-lg-5">
-          {" "}
-          <div className="col-md-4 mb-5 mb-md-0">
-            {" "}
-            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
-              {" "}
-              <i
-                className="fas fa-headset fa-lg text-white fa-fw"
-                aria-controls="#picker-editor"
-              />{" "}
-            </div>{" "}
-            <h5 className="fw-bold mb-3">Support 24/7</h5>{" "}
-            <p className="text-muted mb-0">
-              Anyone can access it at any time it is available 24/7
-            </p>{" "}
-          </div>{" "}
-          <div className="col-md-4 mb-5 mb-md-0">
-            {" "}
-            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
-              {" "}
-              <i
-                className="fas fa-shield-alt fa-lg text-white fa-fw"
-                aria-controls="#picker-editor"
-              />{" "}
-            </div>{" "}
-            <h5 className="fw-bold mb-3">Safe and solid</h5>{" "}
-            <p className="text-muted mb-0">
-              It is secure and safe to use
-            </p>{" "}
-          </div>{" "}
-          <div className="col-md-4 mb-5 mb-md-0">
-            {" "}
-            <div className="p-3 bg-primary rounded-4 shadow-2-strong d-inline-block mb-4">
-              {" "}
-              <i
-                className="fas fa-shipping-fast fa-lg text-white fa-fw"
-                aria-controls="#picker-editor"
-              />{" "}
-            </div>{" "}
-            <h5 className="fw-bold mb-3">Extremely fast</h5>{" "}
-            <p className="text-muted mb-0">
-              It converts the video based content into a blog at an extremely fast rate
-            </p>{" "}
-          </div>{" "}
-        </div>{" "}
-      </section>
-    </section>
-    {/**/}
-  </div>
+
   <div data-draggable="true" className="" style={{ position: "relative" }}>
     {/**/}
     {/**/}
@@ -196,8 +253,11 @@ const Home = () => {
       <section className="mb-10">
         {" "}
         <h2 className="fw-bold mb-5 text-center">
-          Process
+          Video to Blog Workflow
         </h2>{" "}
+        <h4 className="fw-bold mb-5 text-center">
+        How to transform a video into a blog post?
+        </h4>{" "}
         <div className="row gx-lg-5 align-items-center">
           {" "}
           <div className="col-lg-5 mb-5 mb-lg-0">
@@ -259,9 +319,9 @@ const Home = () => {
               </div>{" "}
               <div className="flex-grow-1 ms-4">
                 {" "}
-                <p className="fw-bold mb-1">Video</p>{" "}
+                <p className="fw-bold mb-1">Video Upload</p>{" "}
                 <p className="text-muted mb-0">
-                 Video content is converted into text based content 
+                 Video content is converted into text based content. Upload your video where it gets automatically transcribed.
                 </p>{" "}
               </div>{" "}
             </div>{" "}
@@ -305,7 +365,7 @@ const Home = () => {
               </div>{" "}
               <div className="flex-grow-1 ms-4">
                 {" "}
-                <p className="fw-bold mb-1">Blog</p>{" "}
+                <p className="fw-bold mb-1"> Generate Blog</p>{" "}
                 <p className="text-muted mb-0">
                   Video content is converted into a blog
                 </p>{" "}

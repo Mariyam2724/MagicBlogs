@@ -35,7 +35,7 @@ const Header = () => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <NavLink className="navbar-brand mt-2 mt-lg-0" to="/">
-            <img src="/logomain.png" height="45" alt=" Logo" loading="lazy" />
+            <img src="https://www.shutterstock.com/image-vector/video-blog-player-interface-icon-260nw-435992056.jpg" height="45" alt=" Logo" loading="lazy" />
           </NavLink>
 
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -81,7 +81,7 @@ const Header = () => {
               aria-expanded="false"
             >
               <img
-                src="/setting.png"
+                src="https://www.shutterstock.com/image-illustration/user-check-mark-icon-can-260nw-1262308765.jpg"
                 className="rounded-circle"
                 height="25"
                 alt="Black and White Portrait of a Man"
