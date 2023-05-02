@@ -36,7 +36,7 @@ const Signin = () => {
 
         navigate('/user/addvideo')
       }
-      else if(res.status===401)
+      else if(res.status===401 )
       {
         Swal.fire({
           icon : 'error',
@@ -46,6 +46,9 @@ const Signin = () => {
 
 
       }
+
+      
+
     },
     validate: (values) => {
       const errors = {};
@@ -74,7 +77,7 @@ const Signin = () => {
               <div className="row g-0">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
-                    src="https://anyword.com/wp-content/uploads/2022/11/Frame-4272.png"
+                    src="art.jpg"
                     alt="login form"
                     className="img-fluid"
                     style={{ borderRadius: "1rem 0 0 1rem" }}
