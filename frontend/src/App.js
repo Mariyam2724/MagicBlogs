@@ -23,6 +23,9 @@ import BlogsList from "./components/main/BlogsList";
 import Blog from "./components/blog";
 import AddBlog from "./components/blog/AddBlog";
 import VideoManager from "./components/user/VideoManager";
+import ListBlog from "./components/blog/ListBlog";
+import BlogManager from "./components/blog/BlogManager";
+import ViewBlog from "./components/blog/ViewBlog";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -83,6 +86,9 @@ function App() {
               path="blog"
             >
               <Route path="addblog/:id" element={<AddBlog />} />
+              <Route path="listblog" element={<ListBlog />} />
+              <Route path="manageblog" element={<BlogManager />} />
+              <Route path="viewblog/:id" element={<ViewBlog />} />
              
               
             </Route>

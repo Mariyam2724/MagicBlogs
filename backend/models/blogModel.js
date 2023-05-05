@@ -10,7 +10,7 @@ const myschema = new Schema({
     image:String,
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'user'
     },
     video: {
         type: Schema.Types.ObjectId,

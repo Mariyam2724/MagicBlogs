@@ -3,31 +3,26 @@ import { NavLink } from "react-router-dom";
 import app_config from "../../config";
 
 function ListBlog() {
-  const url = app_config.backend_url;
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const url = app_config.apiurl;
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = app_config.backend_url;
+    const url = app_config.apiurl;
     fetch(url + "/blog/getall")
-      .then((response) => {
-        if (response.ok) {
+      .then(async (response) => {
+        console.log(response.status);
+        // const data = await response.json();
+        // console.log(data);
+        if (response.status === 200) {
           return response.json();
         }
-        throw response;
       })
       .then((data) => {
         console.log(data);
         setData(data);
       })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setError(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
   }, []);
   if (loading) return "Loading...";
   if (error) return "Error!...";

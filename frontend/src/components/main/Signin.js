@@ -31,7 +31,7 @@ const Signin = () => {
         sessionStorage.setItem('user', JSON.stringify(data.result));
         Swal.fire({
           icon : 'success',
-          title: 'Video Added'
+          title: 'Logged In successfully!😁👍'
         })
 
         navigate('/user/addvideo')

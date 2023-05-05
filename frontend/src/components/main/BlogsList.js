@@ -111,7 +111,7 @@ const BlogsList = () => {
         >
           <section className="mb-10 text-center">
             {" "}
-            <h2 className="fw-bold mb-7 text-center">Latest articles</h2>{" "}
+            <h2 className="fw-bold mb-7 text-center">Latest Blogs</h2>{" "}
             <div className="row gx-lg-5">
               {" "}
               <div className="col-lg-4 col-md-12 mb-6 mb-lg-0">

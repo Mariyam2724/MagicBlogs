@@ -9,3 +9,9 @@
   border: 1px solid black;
   height: 80vh;
 }
+
+.blog-back{
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}

@@ -7,7 +7,7 @@ import MarkdownPreview from '@uiw/react-markdown-preview';
 const ViewBlog = () => {
   const { id } = useParams();
   console.log(id);
-  const url = app_config.backend_url;
+  const url = app_config.apiurl;
   const [loading, setLoading] = useState(false);
   const [blogData, setBlogData] = useState("")
 

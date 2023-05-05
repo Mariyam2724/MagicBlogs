@@ -25,7 +25,7 @@ router.get("/getall", (req, res) => {
     })
     .catch((err) => {
       console.error(err)
-      res.json(err)
+      res.status(500).json(err)
     })
   // res.send('response achieved ')
 })
@@ -34,6 +34,7 @@ router.get("/getbyuserid/:id", (req, res) => {
   Model.find({user:req.params.id}) 
     .populate("user")
     .then((result) => {
+      console.log(result);
       res.json(result)
     })
     .catch((err) => {

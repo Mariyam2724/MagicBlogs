@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 
 const BlogManager = () => {
-  const url = app_config.backend_url;
+  const url = app_config.apiurl;
   const [blogList, setBlogList] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
