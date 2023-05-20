@@ -23,6 +23,7 @@ const { SMTPClient } = require("emailjs");
 const deepgram = new Deepgram("51add8e9258c2cac6235ffd9da383d34bb9e2e30");
 const fs = require("fs");
 const videoModel = require("../models/videoModel");
+const audioModel = require("../models/audioModel");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -72,6 +73,46 @@ router.get("/transcribe/:videoid", (req, res) => {
           videoModel
             .findByIdAndUpdate(
               req.params.videoid,
+              { transcription: transcript },
+              { new: true }
+            )
+            .then((updatedata) => {
+              // console.log(updatedata);
+              res.status(200).json(updatedata);
+            })
+            .catch((err) => {
+              console.error('error occured while transcribing');
+              console.error(err.message);
+            });
+        });
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get("/transcribeaudio/:audioid", (req, res) => {
+  audioModel
+    .findById(req.params.audioid)
+    .then((data) => {
+      if (data.transcription) {
+        console.log("trascript exists");
+        res.status(200).json(data);
+      } else {
+        // console.log('trascript doesnt exists');
+        console.log("transcribing " + data.file + " ...");
+        const audioSource = {
+          stream: fs.createReadStream("./static/uploads/" + data.file),
+          mimetype: "audio/mp3",
+        };
+        
+        transcriber(audioSource, ({ transcript, confidence, words }) => {
+          console.log(transcript);
+          audioModel
+            .findByIdAndUpdate(
+              req.params.audioid,
               { transcription: transcript },
               { new: true }
             )

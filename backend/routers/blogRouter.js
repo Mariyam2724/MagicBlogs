@@ -18,7 +18,7 @@ router.post("/add", (req, res) => {
 })
 
 router.get("/getall", (req, res) => {
-  Model.find({})
+  Model.find({}).populate('user')
     .then((result) => {
       console.log(result)
       res.json(result)
@@ -45,7 +45,7 @@ router.get("/getbyuserid/:id", (req, res) => {
 
 
 router.get("/getbyid/:id", (req, res) => {
-  Model.findById(req.params.id)
+  Model.findById(req.params.id).populate('user')
     .then((result) => {
       res.json(result)
     })

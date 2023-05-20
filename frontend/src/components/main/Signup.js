@@ -1,13 +1,15 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { Formik, Form, Field } from 'formik';
 import { useFormik } from "formik";
 import app_config from '../../config';
+import Swal from 'sweetalert2';
 
 
 const Signup = () => {
 
   const url = app_config.apiurl;
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -27,6 +29,17 @@ const Signup = () => {
       });
 
       console.log(res.status);
+
+      if(res.status === 201){
+        Swal.fire({
+          icon : 'success',
+          title : 'Success',
+          text : 'Account Created!'
+        });
+
+        navigate('/user/addvideo');
+      }
+
     },
     validate: (values) => {
       const errors = {};
@@ -53,6 +66,8 @@ const Signup = () => {
       return errors;
     },
   });
+
+  
 
   return (
 
@@ -103,7 +118,10 @@ const Signup = () => {
                     {/* 2 column grid layout with text inputs for the first and last names */}
                     <div className="row">
                       <div className="col-md-6 mb-4">
-                        <div className="form-outline">
+                        <div className="">
+                          <label className="form-label" htmlFor="FirstName">
+                            First name
+                          </label>
                           <input
                             type="text"
                             id="firstName"
@@ -111,16 +129,16 @@ const Signup = () => {
                             onChange={formik.handleChange}
                             value={formik.values.firstName}
                           />
-                          {formik.errors.lastName && formik.touched.lastName && (
-                            <div className="text-danger">{formik.errors.lastName}</div>
+                          {formik.errors.firstName && formik.touched.firstName && (
+                            <div className="text-danger">{formik.errors.firstName}</div>
                           )}
-                          <label className="form-label" htmlFor="FirstName">
-                            First name
-                          </label>
                         </div>
                       </div>
                       <div className="col-md-6 mb-4">
-                        <div className="form-outline">
+                        <div className="">
+                        <label className="form-label" htmlFor="form3Example2">
+                            Last name
+                          </label>
                           <input
                             type="text"
                             id="lastName"
@@ -131,14 +149,15 @@ const Signup = () => {
                           {formik.errors.firstName && formik.touched.firstName && (
                             <div className="text-danger">{formik.errors.firstName}</div>
                           )}
-                          <label className="form-label" htmlFor="form3Example2">
-                            Last name
-                          </label>
+                          
                         </div>
                       </div>
                     </div>
                     {/* Email input */}
-                    <div className="form-outline mb-4">
+                    <div className=" mb-4">
+                    <label className="form-label" htmlFor="email">
+                        Email address
+                      </label>
                       <input
                         type="email"
                         id="email"
@@ -151,12 +170,13 @@ const Signup = () => {
                       {formik.errors.email && formik.touched.email && (
                         <div className="text-danger">{formik.errors.email}</div>
                       )}
-                      <label className="form-label" htmlFor="email">
-                        Email address
-                      </label>
+                      
                     </div>
                     {/* Password input */}
-                    <div className="form-outline mb-4">
+                    <div className=" mb-4">
+                    <label className="form-label" htmlFor="password">
+                        Password
+                      </label>
                       <input
                         type="password"
                         id="password"
@@ -169,9 +189,7 @@ const Signup = () => {
                       {formik.errors.password && formik.touched.password && (
                         <div className="text-danger">{formik.errors.password}</div>
                       )}
-                      <label className="form-label" htmlFor="password">
-                        Password
-                      </label>
+                      
                     </div>
                     {/* Checkbox */}
                     <div className="form-check d-flex justify-content-center mb-4">
@@ -183,7 +201,7 @@ const Signup = () => {
                         defaultChecked=""
                       />
                       <label className="form-check-label" htmlFor="form2Example33">
-                        Subscribe to our newsletter
+                        Subscribe to our website
                       </label>
                     </div>
                     {/* Submit button */}
@@ -228,6 +246,15 @@ const Signup = () => {
                       </button>
                       </NavLink>
                     </div>
+                    <p className="mb-5 pb-lg-2 " style={{ color: "#393f81", display: "flex",
+        alignItems: "center",
+        justifyContent: "center", }}>
+                        <NavLink className="nav-link" to="/user/signin">
+                          Already have an account?{" "}
+                          <a href="#!" style={{ color: "#393f81" }}>
+                            Sign in here
+                          </a></NavLink>
+                      </p>
                   </form>
                 </div>
               </div>

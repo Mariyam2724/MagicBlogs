@@ -26,6 +26,8 @@ import VideoManager from "./components/user/VideoManager";
 import ListBlog from "./components/blog/ListBlog";
 import BlogManager from "./components/blog/BlogManager";
 import ViewBlog from "./components/blog/ViewBlog";
+import AddAudio from "./components/user/AddAudio";
+import AudioManager from "./components/user/AudioManager";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(
@@ -74,8 +76,10 @@ function App() {
               path="user"
             >
               <Route path="profile" element={<UserProfile />} />
+              <Route path="addaudio" element={<AddAudio />} />
               <Route path="addvideo" element={<AddVideo />} />
               <Route path="managevideo" element={<VideoManager />} />
+              <Route path="manageaudio" element={<AudioManager />} />
               <Route path="userhome" element={<Browse />} />
             </Route>
             
@@ -85,7 +89,7 @@ function App() {
               }
               path="blog"
             >
-              <Route path="addblog/:id" element={<AddBlog />} />
+              <Route path="addblog/:id/:type" element={<AddBlog />} />
               <Route path="listblog" element={<ListBlog />} />
               <Route path="manageblog" element={<BlogManager />} />
               <Route path="viewblog/:id" element={<ViewBlog />} />

@@ -8,6 +8,7 @@ const myschema = new Schema({
     text:String,
     createdAt:Date,
     image:String,
+    data: Object,
     user: {
         type: Schema.Types.ObjectId,
         ref: 'user'

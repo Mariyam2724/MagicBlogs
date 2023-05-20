@@ -6,6 +6,7 @@ const userRouter = require('./routers/userRouter');
 const videoRouter = require('./routers/videoRouter')
 const utilRouter = require('./routers/util');
 const blogRouter = require('./routers/blogRouter');
+const audioRouter = require('./routers/audioRouter');
 const cors = require('cors');
 const { PORT } = require('./config');
 
@@ -26,6 +27,7 @@ app.use(express.static('./static/uploads'))
 app.use('/user', userRouter); 1
 app.use('/video', videoRouter);
 app.use('/util', utilRouter);
+app.use('/audio', audioRouter);
 app.use('/blog', blogRouter);
 app.get('/', (req, res) => {
     console.log('Request at index');

@@ -46,7 +46,7 @@ function ListBlog() {
                 ></div>
                 <div className="card-body">
                   <h5 className="card-title mb-3">{blog.title}</h5>
-                  <p className="text-muted m-0">Author</p>
+                  <p className="text-muted m-0">{blog.user.firstName} {blog.user.lastName}</p>
                   <h6 className="card-title mb-3">{blog.user.username}</h6>
                   {/* <p>Category</p> */}
                   <NavLink

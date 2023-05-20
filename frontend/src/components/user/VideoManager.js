@@ -20,6 +20,8 @@ const VideoManager = () => {
   const navigate = useNavigate();
   const [selBlog, setSelBlog] = useState(null);
 
+  const [selVideo, setSelVideo] = useState(null);
+
   const getDataFromBackend = async () => {
     setLoading(true);
     const response = await fetch(url + "/video/getbyuser/" + currentUser._id);
@@ -58,8 +60,8 @@ const VideoManager = () => {
       const data = await response.json();
       console.log(data);
       // getDataFromBackend();
-      
-      navigate("/blog/addblog/" + id);
+
+      navigate("/blog/addblog/" + id + '/video');
       // setBlogLoading(false);
     } else if (response.status === 400) {
       toast.error("Video is not transcribed yet");
@@ -89,44 +91,46 @@ const VideoManager = () => {
     if (!loading) {
       return userArray.map(({ _id, title, description, file, thumbnail }, index) => (
         <div className="col-md-3 mt-4" key={_id}>
-            <div
-              className="thumb-small"
-              style={{ backgroundImage: `url('${thumbnail ?url + "/" + thumbnail: 'video-placeholder.webp'}')` }}
-            >
-              <div className="p-3 thumb-options">
-                {/* <h5 className="card-title">{title}</h5>
+          <div
+            className="thumb-small"
+            style={{ backgroundImage: `url('${thumbnail ? url + "/" + thumbnail : 'video-placeholder.webp'}')` }}
+          >
+            <div className="p-3 thumb-options">
+              {/* <h5 className="card-title">{title}</h5>
               <p className="text-muted">{description}</p> */}
-                <Link to={"/user/viewvideo/" + _id}>
-                  <button className="btn btn-primary btn-floating">
-                    <i class="fas fa-eye "></i>
-                  </button>
-                </Link>
-                &nbsp;&nbsp;&nbsp;
-                <button
-                  className="btn btn-danger btn-floating"
-                  onClick={(e) => deleteVideo(_id)}
-                >
-                  <i class="fas fa-trash"></i>
+              {/* <Link to={"/user/viewvideo/" + _id}> */}
+                <button className="btn btn-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#exampleModal" onClick={e => {
+                  setSelVideo({ _id, title, description, file, thumbnail })
+                }}>
+                  <i class="fas fa-eye "></i>
                 </button>
-                &nbsp;&nbsp;&nbsp;
-                {!blogLoading ? (
-                  <button
-                    className={"btn btn-secondary "+(selBlog===index?'btn-rounded':'btn-floating')}
-                    onClick={(e) => convertVideotoBlog(_id, index)}
-                  ><i className={"fa-solid fa-gear "+(selBlog===index?'fa-spin':'')}></i>
-                    {selBlog===index?' Converting ...':'' }
-                  </button>
-                ) : (
-                  <button className="btn btn-success" disabled>
-                    Converting...
-                  </button>
-                )}
-              </div>
-
-              <p className="h3 text-muted ms-3">{title}</p>
-              <p className="h6 text-muted ms-3">{file}</p>
+              {/* </Link> */}
+              &nbsp;&nbsp;&nbsp;
+              <button
+                className="btn btn-danger btn-floating"
+                onClick={(e) => deleteVideo(_id)}
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+              &nbsp;&nbsp;&nbsp;
+              {!blogLoading ? (
+                <button
+                  className={"btn btn-secondary " + (selBlog === index ? 'btn-rounded' : 'btn-floating')}
+                  onClick={(e) => convertVideotoBlog(_id, index)}
+                ><i className={"fa-solid fa-gear " + (selBlog === index ? 'fa-spin' : '')}></i>
+                  {selBlog === index ? ' Converting ...' : ''}
+                </button>
+              ) : (
+                <button className="btn btn-success" disabled>
+                  Converting...
+                </button>
+              )}
             </div>
-          
+
+            <p className="h3 text-muted ms-3">{title}</p>
+            <p className="h6 text-muted ms-3">{file}</p>
+          </div>
+
         </div>
       ));
     } else {
@@ -147,12 +151,36 @@ const VideoManager = () => {
       transition={{ type: "keyframes" }}
       className="vid-manage-bg"
     >
+
+      {
+        selVideo && (
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{selVideo.title}</h5>
+                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  {
+                    <video style={{width: '100%'}} src={url + '/' + selVideo.file}></video>
+                  }
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+
       <section className="header-top">
         {/* <i class="fas fa-paperclip header-text"></i> */}
-      <h1 className="header-text">Manage Your Videos</h1>
+        <h1 className="header-text">Manage Your Videos</h1>
       </section>
       <section>
-        
+
         <div>
           <h3 className="text-center mt-4">All Videos</h3>
         </div>
@@ -160,17 +188,17 @@ const VideoManager = () => {
       <section>
         <div className="col-md-10 mx-auto">
           <div className="row mt-3 mb-5">
-          <div className="col-md-3 mt-4">
-            <Link to="/user/addvideo">
-          <div className="card h-100">
-            <div className="card-body">
-              <motion.img whileHover={{ scale: 1.3 }} transition={{type: 'spring'}} style={{display: 'block', margin: 'auto', height: 150}} src="https://lordicon.com/upload/icons/2022_02/z31mkGzma.gif" alt="" />
-            </div>
-            </div>
-            </Link>
+            <div className="col-md-3 mt-4">
+              <Link to="/user/addvideo">
+                <div className="card h-100">
+                  <div className="card-body">
+                    <motion.img whileHover={{ scale: 1.3 }} transition={{ type: 'spring' }} style={{ display: 'block', margin: 'auto', height: 150 }} src="https://lordicon.com/upload/icons/2022_02/z31mkGzma.gif" alt="" />
+                  </div>
+                </div>
+              </Link>
             </div>
             {displayVideo()}
-            </div>
+          </div>
         </div>
       </section>
     </motion.div>

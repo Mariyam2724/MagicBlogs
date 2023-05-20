@@ -71,6 +71,16 @@ const Header = () => {
                   ManageVideos
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/user/addaudio">
+                  Add Audio
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/user/manageaudio">
+                  Manage Audios
+                </NavLink>
+              </li>
             </ul>
             {/* Left links */}
           </div>
