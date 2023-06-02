@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <>
+    
+    <div style={{ backgroundImage: 'url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/63ad8c86128681.5d909dad4fd8a.jpg")'}}>
   <div className="container py-4 " >
     {" "}
     <div className="row g-0 align-items-center">
@@ -384,7 +385,8 @@ const Home = () => {
       </section>
     </section>
   </div>
-</>
+  </div>
+
 
 
 

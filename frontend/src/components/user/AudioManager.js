@@ -139,6 +139,8 @@ const AudioManager = () => {
   };
 
   return (
+
+    <div style={{backgroundImage: 'url("https://static.vecteezy.com/system/resources/previews/005/004/847/non_2x/abstract-wave-audio-and-equalizer-background-design-illustration-futuristic-flow-spectrum-background-design-with-creative-light-and-gradient-modern-music-background-design-vector.jpg")'}}>
     <motion.div
       initial={{ opacity: 0, x: 300 }}
       animate={{ opacity: 1, x: 0 }}
@@ -148,7 +150,8 @@ const AudioManager = () => {
     >
       <section className="header-top">
         {/* <i class="fas fa-paperclip header-text"></i> */}
-      <h1 className="header-text">Manage Your Audios</h1>
+        
+      <h1 className="header-text"  style={{textAlign: "center" , color:" white", paddingTop:'20px'}}>Manage Your Audios</h1>
       </section>
       <section>
         
@@ -173,6 +176,7 @@ const AudioManager = () => {
         </div>
       </section>
     </motion.div>
+    </div>
   );
 };
 

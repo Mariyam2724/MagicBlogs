@@ -86,22 +86,17 @@ const AddVideo = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 300 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0.5, x: -300 }}
-      transition={{ type: "keyframes" }}
-      className="container-fluid"
-    >
-      <section className="header-top addvideo-header-bg">
-        <h1 className="header-text">Add New Video</h1>
-      </section>
-      <div className="card mt-5 w-50 mx-auto">
+    
+      <div style={{ backgroundImage: 'url("https://www.haleymarketing.com/wp-content/uploads/2018/08/5-Examples-of-Background-Video-in-Websites-1.jpg")'  }}>
+      
+     
+        <h1 className="header-text" style={{textAlign: "center" , color:" white", paddingTop:'20px'}}>Add New Video</h1>
+      <div className="card mt-5 w-50 mx-auto" style={{ backgroundImage: 'url(" https://evilmartians.com/static/8e3fac08852ac96fb0ca9cb0cbde7e4a/a05e5/bg.jpg")'}}>
         <Formik initialValues={userForm} onSubmit={userSubmit}>
           {({ values, handleChange, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
-              <div className="mb-4 px-3">
-                <label className="mx-1 form-label" htmlFor="form4Example1">
+              <div className="mb-4 px-3" >
+                <label className="mx-1 form-label "  >
                   Title:-
                 </label>
                 <input
@@ -166,7 +161,8 @@ const AddVideo = () => {
           )}
         </Formik>
       </div>
-    </motion.div>
+      </div>
+    
   );
 };
 

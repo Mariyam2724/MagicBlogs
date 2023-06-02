@@ -86,6 +86,7 @@ const AddAudio = () => {
   };
 
   return (
+    <div style={{backgroundImage: 'url("https://static.vecteezy.com/system/resources/previews/005/004/847/non_2x/abstract-wave-audio-and-equalizer-background-design-illustration-futuristic-flow-spectrum-background-design-with-creative-light-and-gradient-modern-music-background-design-vector.jpg")'}}>
     <motion.div
       initial={{ opacity: 0, x: 300 }}
       animate={{ opacity: 1, x: 0 }}
@@ -94,9 +95,9 @@ const AddAudio = () => {
       className="container-fluid"
     >
       <section className="header-top addaudio-header-bg">
-        <h1 className="header-text">Add New Audio</h1>
+        <h1 className="header-text" style={{textAlign: "center" , color:" white", paddingTop:'20px'}}>Add New Audio</h1>
       </section>
-      <div className="card mt-5 w-50 mx-auto">
+      <div className="card mt-5 w-50 mx-auto" style={{ backgroundImage: 'url(" https://evilmartians.com/static/8e3fac08852ac96fb0ca9cb0cbde7e4a/a05e5/bg.jpg")'}}>
         <Formik initialValues={userForm} onSubmit={userSubmit}>
           {({ values, handleChange, handleSubmit }) => (
             <form onSubmit={handleSubmit}>
@@ -167,6 +168,7 @@ const AddAudio = () => {
         </Formik>
       </div>
     </motion.div>
+    </div>
   );
 };
 

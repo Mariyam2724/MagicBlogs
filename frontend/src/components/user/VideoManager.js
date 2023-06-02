@@ -90,7 +90,7 @@ const VideoManager = () => {
   const displayVideo = () => {
     if (!loading) {
       return userArray.map(({ _id, title, description, file, thumbnail }, index) => (
-        <div className="col-md-3 mt-4" key={_id}>
+        <div className="col-md-3 mt-4" key={_id} style={{ backgroundImage: 'url(" https://evilmartians.com/static/8e3fac08852ac96fb0ca9cb0cbde7e4a/a05e5/bg.jpg")'}} >
           <div
             className="thumb-small"
             style={{ backgroundImage: `url('${thumbnail ? url + "/" + thumbnail : 'video-placeholder.webp'}')` }}
@@ -144,6 +144,7 @@ const VideoManager = () => {
   };
 
   return (
+    <div   style={{ backgroundImage: 'url("https://d33wubrfki0l68.cloudfront.net/b4759e96fa9ada8ee8caa4c771fcd503f289d791/6de77/static/triangle_background-9df4fa2e10f0e294779511e99083c2bc.jpg")'}}> 
     <motion.div
       initial={{ opacity: 0, x: 300 }}
       animate={{ opacity: 1, x: 0 }}
@@ -166,6 +167,7 @@ const VideoManager = () => {
                     <video style={{width: '100%'}} src={url + '/' + selVideo.file}></video>
                   }
                 </div>
+                
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
                 </div>
@@ -175,14 +177,16 @@ const VideoManager = () => {
         )
       }
 
+
       <section className="header-top">
+        
         {/* <i class="fas fa-paperclip header-text"></i> */}
-        <h1 className="header-text">Manage Your Videos</h1>
+        <h1 className="header-text" style={{textAlign: "center" , color:" white", paddingTop:'20px'}}>Manage Your Videos</h1>
       </section>
       <section>
 
-        <div>
-          <h3 className="text-center mt-4">All Videos</h3>
+        <div style={{ color:" white", paddingTop:'20px'}}>
+          <h3 className="text mt-4">All Videos</h3>
         </div>
       </section>
       <section>
@@ -201,7 +205,9 @@ const VideoManager = () => {
           </div>
         </div>
       </section>
+      
     </motion.div>
+    </div>
   );
 };
 

@@ -21,13 +21,18 @@ const Header = () => {
         {/* Collapsible wrapper */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {/* Navbar brand */}
-          <a className="navbar-brand mt-2 mt-lg-0" href="#">
+          <a className="navbar-brand mt-2 mt-lg-0" href="http://localhost:3000/main/home">
+          
+              
+                
+             
             <img
               src="https://www.shutterstock.com/image-vector/video-blog-player-interface-icon-260nw-435992056.jpg"
               height={70}
               alt="Logo"
               loading="lazy"
             />
+            
           </a>
           {/* Left links */}
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
