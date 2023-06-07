@@ -36,7 +36,7 @@ const Signin = () => {
 
         navigate('/user/addvideo')
       }
-      else if(res.status===401 )
+      else if(res.status===501 )
       {
         Swal.fire({
           icon : 'error',
@@ -99,7 +99,10 @@ const Signin = () => {
                       >
                         Sign into your account
                       </h5>
-                      <div className="form-outline mb-4">
+                      <div className=" mb-4">
+                        <label className="form-label" htmlFor="form2Example17">
+                          Email address
+                        </label>
                         <input
                           type="email"
                           id="email"
@@ -112,11 +115,11 @@ const Signin = () => {
                         {formik.errors.email && formik.touched.email && (
                           <div className="text-danger">{formik.errors.email}</div>
                         )}
-                        <label className="form-label" htmlFor="form2Example17">
-                          Email address
-                        </label>
                       </div>
-                      <div className="form-outline mb-4">
+                      <div className=" mb-4">
+                        <label className="form-label" htmlFor="form2Example27">
+                          Password
+                        </label>
                         <input
                           type="password"
                           id="password"
@@ -128,9 +131,6 @@ const Signin = () => {
                         {formik.errors.password && formik.touched.password && (
                           <div className="text-danger">{formik.errors.password}</div>
                         )}
-                        <label className="form-label" htmlFor="form2Example27">
-                          Password
-                        </label>
                       </div>
                       <div className="pt-1 mb-4">
                         <button
@@ -145,7 +145,7 @@ const Signin = () => {
                         Forgot password?
                       </a>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
-                        <NavLink className="nav-link" to="/user/signup">
+                        <NavLink className="nav-link" to="/main/signup">
                           Don't have an account?{" "}
                           <a href="#!" style={{ color: "#393f81" }}>
                             Register here

@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
+import Typewriter from 'typewriter-effect/dist/core';
 
 const Home = () => {
+
+  useEffect(() => {
+   new Typewriter('#typewriter', {
+      strings: ['Time is Money!'],
+      autoStart: true,
+      loop: true,
+      
+      
+    });
+
+   
+  }, [])
+  
+
   return (
     
-    <div style={{ backgroundImage: 'url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/63ad8c86128681.5d909dad4fd8a.jpg")'}}>
+    <div style={{ backgroundImage: 'url("https://mir-s3-cdn-cf.behance.net/project_modules/1400/63ad8c86128681.5d909dad4fd8a.jpg")', backgroundSize: 'cover'}}>
   <div className="container py-4 " >
     {" "}
     <div className="row g-0 align-items-center">
@@ -21,24 +36,19 @@ const Home = () => {
           {" "}
           <div className="card-body px-4 py-5 px-md-5 shadow-5 text-center">
             {" "}
-            <h1 className="mb-4 display-5 fw-bold ls-tight">
+            <p>
+            <h1 className="mb-4 display-5 fw-bold ls-tight" >
               {" "}
-              <span>Time is money</span> <br />{" "}
-              <span className="text-primary">convert your video into a Blog now!</span>{" "}
+              
+              <span id="typewriter">Time is money</span> <br />{" "}
+              <span className="text-primary" >Convert your video into a Blog now!</span>{" "}
             </h1>{" "}
-            <a
-              className="btn  btn-primary btn-lg px-5 py-3"
-              href="#"
-              role="button"
-              aria-controls="#picker-editor"
-            > 
-           
-           <NavLink className="nav-link" to="/main/signup">
+          </p>
+           <NavLink className="btn  btn-primary btn-lg px-5 py-3" to="/main/signup">
           
               Start
               </NavLink>
              
-            </a>{" "}
           </div>{" "}
         </div>{" "}
       </div>{" "}

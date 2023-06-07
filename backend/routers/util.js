@@ -1,23 +1,6 @@
 const multer = require("multer");
 const router = require("express").Router();
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "./static/uploads");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-
-// const myStorage = multer({ storage: storage });
-
-// router.post("/uploadfile", myStorage.single("myfile"), (req, res) => {
-//   console.log(req.file.filename);
-//   res.status(200).json({ url: "http://localhost:5000/"+req.file.filename });
-// });
-
-
 const { Deepgram } = require("@deepgram/sdk");
 const { SMTPClient } = require("emailjs");
 const deepgram = new Deepgram("51add8e9258c2cac6235ffd9da383d34bb9e2e30");

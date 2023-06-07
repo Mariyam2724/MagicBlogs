@@ -19,6 +19,8 @@ const AudioManager = () => {
   const navigate = useNavigate();
   const [selBlog, setSelBlog] = useState(null);
 
+  const [selAudio, setSelAudio] = useState(null);
+
   const getDataFromBackend = async () => {
     setLoading(true);
     const response = await fetch(url + "/audio/getbyuser/" + currentUser._id);
@@ -89,17 +91,17 @@ const AudioManager = () => {
       return userArray.map(({ _id, title, description, file, thumbnail }, index) => (
         <div className="col-md-3 mt-4" key={_id}>
             <div
-              className="thumb-small"
-              style={{ backgroundImage: `url('${thumbnail ?url + "/" + thumbnail: 'audio-placeholder.webp'}')` }}
+              className="thumb-small py-4"
+              style={{ backgroundImage: `url('https://resourcecentre.savethechildren.net/static/video_placeholder-74d554a5f2855a914ee3879bd04c55c3.png')`, backgroundSize: 'cover', borderRadius: 10 }}
             >
               <div className="p-3 thumb-options">
                 {/* <h5 className="card-title">{title}</h5>
               <p className="text-muted">{description}</p> */}
-                <Link to={"/user/viewaudio/" + _id}>
-                  <button className="btn btn-primary btn-floating">
-                    <i class="fas fa-eye "></i>
-                  </button>
-                </Link>
+                <button className="btn btn-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#videoModal" onClick={e => {
+                setSelAudio({ _id, title, description, file, thumbnail })
+              }}>
+                <i class="fas fa-eye "></i>
+              </button>
                 &nbsp;&nbsp;&nbsp;
                 <button
                   className="btn btn-danger btn-floating"
@@ -141,13 +143,52 @@ const AudioManager = () => {
   return (
 
     <div style={{backgroundImage: 'url("https://static.vecteezy.com/system/resources/previews/005/004/847/non_2x/abstract-wave-audio-and-equalizer-background-design-illustration-futuristic-flow-spectrum-background-design-with-creative-light-and-gradient-modern-music-background-design-vector.jpg")'}}>
-    <motion.div
+    <div
       initial={{ opacity: 0, x: 300 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0.5, x: -300 }}
       transition={{ type: "keyframes" }}
       className="vid-manage-bg"
     >
+       <div
+          className="modal fade"
+          id="videoModal"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{selAudio && selAudio.title}</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-mdb-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">
+                {
+
+                  selAudio && (
+                    <video style={{ width: '100%' }} src={url + '/' + selAudio.file} controls></video>
+                  )
+                }
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-mdb-dismiss="modal"
+                >
+                  Close
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
       <section className="header-top">
         {/* <i class="fas fa-paperclip header-text"></i> */}
         
@@ -175,7 +216,7 @@ const AudioManager = () => {
             </div>
         </div>
       </section>
-    </motion.div>
+    </div>
     </div>
   );
 };

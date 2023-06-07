@@ -41,11 +41,7 @@ const Header = () => {
             </a>
             {/* Left links */}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/user/userhome">
-                  Browse
-                </NavLink>
-              </li>
+              
               {loggedin && (
                 <>
                   <li className="nav-item">
@@ -98,10 +94,11 @@ const Header = () => {
                 aria-expanded="false"
               >
                 <img
-                  src="https://www.shutterstock.com/image-illustration/user-check-mark-icon-can-260nw-1262308765.jpg"
+                  className="border-rounded d-block m-auto"
+                  src={currentUser.avatar ? `${url}/${currentUser.avatar}` : '/avatar.png'}
                   class="rounded-circle"
                   height="60"
-                  alt="Black and White Portrait of a Man"
+                  alt=""
                   loading="lazy"
                 />
               </a>

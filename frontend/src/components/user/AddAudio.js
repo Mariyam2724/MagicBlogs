@@ -4,10 +4,13 @@ import { Formik } from "formik";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { NavLink, useNavigate } from 'react-router-dom';
+
 // import Loading from "../main/Loading";
 import { motion } from "framer-motion";
 
 const AddAudio = () => {
+  const navigate = useNavigate();
   const [selFile, setSelFile] = useState("");
   const [selImage, setSelImage] = useState("");
   const [currentUser, setCurrentUser] = useState(
@@ -74,6 +77,7 @@ const AddAudio = () => {
         icon: "success",
       });
       // getDataFromBackend();
+      navigate('/user/manageaudio')
     } else {
       console.log("Something went wrong");
       Swal.fire({

@@ -101,18 +101,26 @@ const BlogManager = () => {
       transition={{ type: "keyframes" }}
     >
       <section>
+      
+
+        <div style={{ backgroundImage: 'url(" https://imageio.forbes.com/blogs-images/josephliu/files/2019/06/brooke-cagle-1181672-unsplash-1200x673.jpg?format=jpg&width=1200")'}}>
       <div className="d-flex justify-content-center align-items-center  blogheader ">
         <h1 className="text-light">
           Your All Blogs
       </h1>
-        </div>
-        <div>
-          <h3 className="text-center mt-4">Latest Blogs</h3>
+
+        </div></div>
+        <div >
+         
+          <h3 className="text-center mt-4"  >Latest Blogs</h3>
+         
         </div>
       </section>
       <section>
+      <div style={{ backgroundImage: 'url(" https://wallpaperaccess.com/full/729380.jpg")'}}>
         <div className="container">
           <div className="row mt-3 mb-5">{displayBlog()}</div>
+        </div>
         </div>
       </section>
     </motion.div>

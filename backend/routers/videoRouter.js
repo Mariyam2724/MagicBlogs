@@ -78,6 +78,7 @@ router.get("/getbyid/:id", (req, res) => {
       res.status(500).send("Error retrieving user data");
     });
 });
+
 router.get("/getbyuser/:id", (req, res) => {
   Model.find({user : req.params.id})
     .then((result) => {

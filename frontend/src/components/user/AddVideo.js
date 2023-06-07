@@ -3,11 +3,13 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 import { Formik } from "formik";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { NavLink, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 // import Loading from "../main/Loading";
 import { motion } from "framer-motion";
 
 const AddVideo = () => {
+  const navigate = useNavigate();
   const [selFile, setSelFile] = useState("");
   const [selImage, setSelImage] = useState("");
   const [currentUser, setCurrentUser] = useState(
@@ -65,6 +67,7 @@ const AddVideo = () => {
         "Content-Type": "application/json",
       },
     });
+
     console.log(response.status);
     if (response.status === 201) {
       console.log("Success");
@@ -74,6 +77,7 @@ const AddVideo = () => {
         icon: "success",
       });
       // getDataFromBackend();
+      navigate('/user/managevideo')
     } else {
       console.log("Something went wrong");
       Swal.fire({
@@ -149,6 +153,7 @@ const AddVideo = () => {
                   <button
                     type="submit"
                     className="btn btn-danger w-75 mb-4 mt-3 rounded-5"
+                    
                   >
                     Submit
                   </button>

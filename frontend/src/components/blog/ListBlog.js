@@ -28,8 +28,9 @@ function ListBlog() {
   if (error) return "Error!...";
   return (
     <section className="list-blog">
-      <div className="container py-5">
-        <h2 className="mt-4 mb-5">
+       <div style={{ backgroundImage: 'url(" https://png.pngtree.com/background/20230410/original/pngtree-free-download-aesthetic-background-alcohol-ink-pink-yellow-for-wallpaper-or-picture-image_2385732.jpg")'}}>
+      <div className=" container py-5">
+        <h2 className=" mt-4 mb-5">
           <strong>BLOGS</strong>
         </h2>
         <div className="row">
@@ -62,6 +63,7 @@ function ListBlog() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

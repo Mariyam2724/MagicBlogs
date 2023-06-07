@@ -90,20 +90,20 @@ const VideoManager = () => {
   const displayVideo = () => {
     if (!loading) {
       return userArray.map(({ _id, title, description, file, thumbnail }, index) => (
-        <div className="col-md-3 mt-4" key={_id} style={{ backgroundImage: 'url(" https://evilmartians.com/static/8e3fac08852ac96fb0ca9cb0cbde7e4a/a05e5/bg.jpg")'}} >
+        <div className="col-md-3 mt-4" key={_id}  >
           <div
-            className="thumb-small"
-            style={{ backgroundImage: `url('${thumbnail ? url + "/" + thumbnail : 'video-placeholder.webp'}')` }}
+            className="thumb-small p-3"
+            style={{ backgroundImage: `url('https://resourcecentre.savethechildren.net/static/video_placeholder-74d554a5f2855a914ee3879bd04c55c3.png')`, backgroundSize: 'cover', borderRadius: 10 }}
           >
             <div className="p-3 thumb-options">
               {/* <h5 className="card-title">{title}</h5>
               <p className="text-muted">{description}</p> */}
               {/* <Link to={"/user/viewvideo/" + _id}> */}
-                <button className="btn btn-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#exampleModal" onClick={e => {
-                  setSelVideo({ _id, title, description, file, thumbnail })
-                }}>
-                  <i class="fas fa-eye "></i>
-                </button>
+              <button className="btn btn-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#videoModal" onClick={e => {
+                setSelVideo({ _id, title, description, file, thumbnail })
+              }}>
+                <i class="fas fa-eye "></i>
+              </button>
               {/* </Link> */}
               &nbsp;&nbsp;&nbsp;
               <button
@@ -144,69 +144,88 @@ const VideoManager = () => {
   };
 
   return (
-    <div   style={{ backgroundImage: 'url("https://d33wubrfki0l68.cloudfront.net/b4759e96fa9ada8ee8caa4c771fcd503f289d791/6de77/static/triangle_background-9df4fa2e10f0e294779511e99083c2bc.jpg")'}}> 
-    <motion.div
-      initial={{ opacity: 0, x: 300 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0.5, x: -300 }}
-      transition={{ type: "keyframes" }}
-      className="vid-manage-bg"
-    >
+    <div style={{ backgroundImage: 'url("https://d33wubrfki0l68.cloudfront.net/b4759e96fa9ada8ee8caa4c771fcd503f289d791/6de77/static/triangle_background-9df4fa2e10f0e294779511e99083c2bc.jpg")' }}>
+      <div
+        initial={{ opacity: 0, x: 300 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0.5, x: -300 }}
+        transition={{ type: "keyframes" }}
+        className="vid-manage-bg"
+      >
+        <div
+          className="modal fade"
+          id="videoModal"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{selVideo && selVideo.title}</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-mdb-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">
+                {
 
-      {
-        selVideo && (
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">{selVideo.title}</h5>
-                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  {
-                    <video style={{width: '100%'}} src={url + '/' + selVideo.file}></video>
-                  }
-                </div>
-                
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                </div>
+                  selVideo && (
+                    <video style={{ width: '100%' }} src={url + '/' + selVideo.file} controls></video>
+                  )
+                }
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-mdb-dismiss="modal"
+                >
+                  Close
+                </button>
+
               </div>
             </div>
           </div>
-        )
-      }
-
-
-      <section className="header-top">
-        
-        {/* <i class="fas fa-paperclip header-text"></i> */}
-        <h1 className="header-text" style={{textAlign: "center" , color:" white", paddingTop:'20px'}}>Manage Your Videos</h1>
-      </section>
-      <section>
-
-        <div style={{ color:" white", paddingTop:'20px'}}>
-          <h3 className="text mt-4">All Videos</h3>
         </div>
-      </section>
-      <section>
-        <div className="col-md-10 mx-auto">
-          <div className="row mt-3 mb-5">
-            <div className="col-md-3 mt-4">
-              <Link to="/user/addvideo">
-                <div className="card h-100">
-                  <div className="card-body">
-                    <motion.img whileHover={{ scale: 1.3 }} transition={{ type: 'spring' }} style={{ display: 'block', margin: 'auto', height: 150 }} src="https://lordicon.com/upload/icons/2022_02/z31mkGzma.gif" alt="" />
-                  </div>
-                </div>
-              </Link>
-            </div>
-            {displayVideo()}
+
+
+
+
+        <section className="header-top">
+
+          {/* <i class="fas fa-paperclip header-text"></i> */}
+          <h1 className="header-text" style={{ textAlign: "center", color: " white", paddingTop: '20px' }}>Manage Your Videos</h1>
+        </section>
+        <section>
+
+          <div style={{ color: " white", paddingTop: '20px' }}>
+            <h3 className="text mt-4">All Videos</h3>
           </div>
-        </div>
-      </section>
-      
-    </motion.div>
+        </section>
+        <section>
+          <div className="col-md-10 mx-auto">
+            <div className="row mt-3 mb-5 gx-4">
+              <div className="col-md-3 mt-4">
+                <Link to="/user/addvideo">
+                  <div className="card h-100">
+                    <div className="card-body">
+                      <motion.img whileHover={{ scale: 1.3 }} transition={{ type: 'spring' }} style={{ display: 'block', margin: 'auto', height: 150 }} src="https://lordicon.com/upload/icons/2022_02/z31mkGzma.gif" alt="" />
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              {displayVideo()}
+
+            </div>
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 };

@@ -249,7 +249,7 @@ const Signup = () => {
                     <p className="mb-5 pb-lg-2 " style={{ color: "#393f81", display: "flex",
         alignItems: "center",
         justifyContent: "center", }}>
-                        <NavLink className="nav-link" to="/user/signin">
+                        <NavLink className="nav-link" to="/main/signin">
                           Already have an account?{" "}
                           <a href="#!" style={{ color: "#393f81" }}>
                             Sign in here
